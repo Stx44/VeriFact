@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center hover:cursor-pointer">
+        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
           <p className="text-2xl md:text-3xl text-[#4d1354] font-bold mb-12">
             O Impacto Real da Desinformação
           </p>
