@@ -167,12 +167,52 @@ export default function Home() {
 
           </div>
         </section>
+
         <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
           <a className="h-8 w-20, flex flex-col items-center justify-center ,bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82]">Baixar</span>
           </a>
         </section>
+        
+        <div id="div">
+          <footer className="flex flex-col items-center justify-center, place-content-around ,w-full bg-white/30 backdrop-blur-md text-[#4d1354] py-4 px-6 shadow-sm border-b border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
+              <div>
+                <h3>
+                  Equipe VeriFact
+                </h3>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">
+                  João Vitor
+                </p>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">
+                  Thiago Oliveira
+                </p>
+              </div>
 
+              <div>
+                <h3>Produtos</h3>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">TrustFlow</p>
+              </div>
+
+              <div>
+                <h3>Como usar?</h3>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Tutorial</p>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Guia</p>
+
+                
+              </div>
+
+              <div>
+                <h3>Recursos</h3>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Blog</p>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Contato</p>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Suporte</p>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Documentação</p>  
+              </div>
+
+            </div>
+          </footer>
+        </div>
 
       </div>
       
