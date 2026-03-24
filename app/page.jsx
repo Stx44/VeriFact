@@ -108,10 +108,72 @@ export default function Home() {
         </section>
 
         <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
-          <a className="h-14 w-20, flex flex-col items-center justify-center ,bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl">
-            <span className="text-[#4d1354]">Baixar</span>
+          <p className="text-2xl md:text-3xl text-[#4d1354] font-bold mb-12">
+            O Impacto Real da Desinformação
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+            
+            {[
+              {
+                titulo: "Crise na Saúde Pública",
+                desc: "Durante a pandemia, a disseminação de notícias falsas sobre 'curas milagrosas' e eficácia de vacinas contribuiu para milhares de mortes evitáveis.",
+                categoria: "Saúde",
+                fonte: "Fonte: Organização Mundial da Saúde (OMS)",
+                link: "https://www.who.int"
+              },
+              {
+                titulo: "Prejuízo de $78 Bilhões",
+                desc: "Um estudo da Universidade de Baltimore e da CHEQ revelou que a desinformação custa à economia global aproximadamente $78 bilhões de dólares anualmente em perdas de mercado.",
+                categoria: "Economia",
+                fonte: "Fonte: Baltimore University & CHEQ Report",
+                link: "#"
+              },
+              {
+                titulo: "Ameaça à Democracia",
+                desc: "No Brasil, 73% da população acredita em notícias falsas sem checar a fonte, o que gerou um cenário de polarização extrema e ataques às instituições democráticas.",
+                categoria: "Sociedade",
+                fonte: "Fonte: Pesquisa Reuters Institute / G1",
+                link: "https://g1.globo.com"
+              }
+            ].map((card, index) => (
+              <div 
+                key={index}
+                className="group bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-12 h-1.5 rounded-full bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] mb-6 mx-auto"></div>
+                  
+                  <span className="text-[10px] font-bold tracking-widest text-[#6ea4ca] uppercase mb-2 block">
+                    {card.categoria}
+                  </span>
+
+                  <h3 className="text-xl font-bold text-[#4d1354] mb-4 group-hover:text-[#9c1a82] transition-colors">
+                    {card.titulo}
+                  </h3>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                    {card.desc}
+                  </p>
+                </div>
+
+                <div className="mt-auto pt-4 border-t border-[#4d1354]/10">
+                  <p className="text-[11px] font-semibold text-[#4d1354]/70 italic uppercase">
+                    {card.fonte}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </section>
+        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
+          <a className="h-8 w-20, flex flex-col items-center justify-center ,bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82]">Baixar</span>
           </a>
         </section>
+
+
       </div>
       
     </main>
