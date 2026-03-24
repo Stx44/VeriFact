@@ -168,6 +168,21 @@ export default function Home() {
           </div>
         </section>
 
+         <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
+          <p className="text-2xl md:text-3xl text-[#4d1354] font-bold mb-12">
+            Sobre nós
+          </p>
+
+          <div className="ml-42 mr-42 group bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl flex flex-col justify-between">
+            <h1 className="text-[#4d1354]">O Farol na Era da Informação</h1>
+            <p className="text-gray-600">Nascemos da convicção de que a verdade não deve ser um privilégio, mas um padrão. Em um mundo saturado por ruídos e incertezas, nossa missão é simples: empoderar sua navegação com clareza e integridade.
+
+Combinamos tecnologia de ponta e ética digital para criar uma ferramenta que atua como seu escudo em tempo real. Não apenas filtramos dados; devolvemos a você o poder de decidir com base em fatos. Acreditamos que uma sociedade consciente começa com a informação correta, e estamos aqui para garantir que, entre milhões de cliques, a verdade seja sempre o seu destino final.
+
+Navegue com confiança. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82]">Escolha a verdade</span>.</p>
+          </div>
+         </section>
+
         <section className="h-10 flex flex-col items-center justify-center px-4 pb-20 text-center">
           <a className="h-8 w-20, flex flex-col items-center justify-center ,bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] hover:cursor-pointer">Baixar</span>
