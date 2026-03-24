@@ -86,7 +86,7 @@ export default function Home() {
             ].map((card, index) => (
               <div 
                 key={index}
-                className="group bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl"
+                className="group bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl hover:cursor-pointer"
               >
                 <div className="w-12 h-1.5 rounded-full bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] mb-6 mx-auto"></div>
                 
@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
+        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center hover:cursor-pointer">
           <p className="text-2xl md:text-3xl text-[#4d1354] font-bold mb-12">
             O Impacto Real da Desinformação
           </p>
@@ -170,7 +170,7 @@ export default function Home() {
 
         <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
           <a className="h-8 w-20, flex flex-col items-center justify-center ,bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82]">Baixar</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] hover:cursor-pointer">Baixar</span>
           </a>
         </section>
         
