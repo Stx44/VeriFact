@@ -168,13 +168,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
+        <section className="h-10 flex flex-col items-center justify-center px-4 pb-20 text-center">
           <a className="h-8 w-20, flex flex-col items-center justify-center ,bg-white/40 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/60 hover:shadow-2xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] hover:cursor-pointer">Baixar</span>
           </a>
         </section>
         
-        <div id="div">
+        <div id="footer 1">
           <footer className="flex flex-col items-center justify-center, place-content-around ,w-full bg-white/30 backdrop-blur-md text-[#4d1354] py-4 px-6 shadow-sm border-b border-gray-100">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
               <div>
@@ -209,7 +209,41 @@ export default function Home() {
                 <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Suporte</p>
                 <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Documentação</p>  
               </div>
+            </div>
+          </footer>
+        </div>
 
+        <div id="footer 2">
+          <footer className="h-30 flex flex-col items-center justify-center, place-content-around ,w-full bg-white/30 backdrop-blur-md text-[#4d1354] py-4 px-6 shadow-sm border-b border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
+              <div>
+                <h3>Email</h3>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">ex@gmail.com</p>
+              </div>
+
+              <div>
+                <h3>Telefone</h3>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">(xx) - xxxxx-xxxx</p>
+              </div>
+
+              <div>
+                <h3>Redes Sociais</h3>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Instagram</p>
+                <p className="text-gray-600 , hover:text-black hover:cursor-pointer">Twitter</p>
+
+              </div>
+
+
+            </div>
+          </footer>
+        </div>
+
+        <div id="footer 3">
+          <footer className="h-15 flex flex-col items-center justify-center, place-content-around ,w-full bg-white/30 backdrop-blur-md text-[#4d1354] py-4 px-6 shadow-sm border-b border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-60 mb-12">
+              <div>
+                <h3>Copyright © 2025 VeriFact. Todos os direitos reservados.</h3>
+              </div>
             </div>
           </footer>
         </div>
