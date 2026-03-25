@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -22,6 +22,34 @@ export default function Home() {
 
   const blobStyle = {
     animation: "blob 10s infinite",
+  };
+
+  
+  const FaqItem = ({ pergunta, resposta }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <div className={`group ${theme.cardBg} backdrop-blur-xl border ${theme.border} rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-lg`}>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full flex items-center justify-between p-7 text-left transition-colors hover:bg-white/5 focus:outline-none"
+        >
+          <span className={`text-lg font-bold ${theme.textPrincipal}`}>
+            {pergunta}
+          </span>
+          <span className={`${theme.textPrincipal} transform transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </span>
+        </button>
+        <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className={`p-7 pt-0 text-left ${theme.textSuporte} leading-relaxed text-md`}>
+            <div className={`w-full h-[1px] ${theme.border} mb-6`}></div>
+            {resposta}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -111,15 +139,12 @@ export default function Home() {
                 className={`group ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl hover:cursor-pointer`}
               >
                 <div className="w-12 h-1.5 rounded-full bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] mb-6 mx-auto"></div>
-                
                 <span className="text-[10px] font-bold tracking-widest text-[#6ea4ca] uppercase mb-2 block">
                   {card.categoria}
                 </span>
-
                 <h3 className={`text-xl font-bold ${theme.textPrincipal} mb-4 group-hover:text-[#9c1a82] transition-colors`}>
                   {card.titulo}
                 </h3>
-                
                 <p className={`${theme.textSuporte} text-sm leading-relaxed`}>
                   {card.desc}
                 </p>
@@ -139,22 +164,19 @@ export default function Home() {
                 titulo: "Crise na Saúde Pública",
                 desc: "Durante a pandemia, a disseminação de notícias falsas sobre 'curas milagrosas' e eficácia de vacinas contribuiu para milhares de mortes evitáveis.",
                 categoria: "Saúde",
-                fonte: "Fonte: Organização Mundial da Saúde (OMS)",
-                link: "https://www.who.int"
+                fonte: "Fonte: Organização Mundial da Saúde (OMS)"
               },
               {
                 titulo: "Prejuízo de $78 Bilhões",
                 desc: "Um estudo da Universidade de Baltimore e da CHEQ revelou que a desinformação custa à economia global aproximadamente $78 bilhões de dólares anualmente em perdas de mercado.",
                 categoria: "Economia",
-                fonte: "Fonte: Baltimore University & CHEQ Report",
-                link: "#"
+                fonte: "Fonte: Baltimore University & CHEQ Report"
               },
               {
                 titulo: "Ameaça à Democracia",
-                desc: "No Brasil, 73% da população acredita em notícias falsas sem checar a fonte, o que gerou um cenário de polarização extrema e ataques às instituições democráticas.",
+                desc: "No Brasil, 73% da população acredita em notícias falsas sem checar a fonte, o que gerou um cenário de polarização extrema.",
                 categoria: "Sociedade",
-                fonte: "Fonte: Pesquisa Reuters Institute / G1",
-                link: "https://g1.globo.com"
+                fonte: "Fonte: Pesquisa Reuters Institute / G1"
               }
             ].map((card, index) => (
               <div 
@@ -163,20 +185,16 @@ export default function Home() {
               >
                 <div>
                   <div className="w-12 h-1.5 rounded-full bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] mb-6 mx-auto"></div>
-                  
                   <span className="text-[10px] font-bold tracking-widest text-[#6ea4ca] uppercase mb-2 block">
                     {card.categoria}
                   </span>
-
                   <h3 className={`text-xl font-bold ${theme.textPrincipal} mb-4 group-hover:text-[#9c1a82] transition-colors`}>
                     {card.titulo}
                   </h3>
-                  
                   <p className={`${theme.textSuporte} text-sm leading-relaxed mb-6`}>
                     {card.desc}
                   </p>
                 </div>
-
                 <div className={`mt-auto pt-4 border-t ${theme.border}`}>
                   <p className={`text-[11px] font-semibold ${theme.textSuporte} italic uppercase`}>
                     {card.fonte}
@@ -202,69 +220,83 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center">
+          <p className={`text-2xl md:text-3xl ${theme.textPrincipal} font-bold mb-12`}>
+            Dúvidas Frequentes
+          </p>
+          <div className="max-w-4xl w-full space-y-4">
+            <FaqItem 
+              pergunta="Como a VeriFact identifica uma notícia falsa?" 
+              resposta="Utilizamos inteligência artificial para análise semântica e cruzamento de dados em tempo real com agências de checagem e bancos de dados oficiais." 
+            />
+            <FaqItem 
+              pergunta="A extensão coleta meus dados de navegação?" 
+              resposta="Não. A VeriFact atua localmente. Analisamos o conteúdo da página que você está vendo para te proteger, mas não armazenamos seu histórico ou dados sensíveis." 
+            />
+            <FaqItem 
+              pergunta="É compatível com quais navegadores?" 
+              resposta="Atualmente suportamos Google Chrome, Microsoft Edge e outros navegadores baseados em Chromium." 
+            />
+          </div>
+        </section>
+
         <section className="h-10 flex flex-col items-center justify-center px-4 pb-20 text-center">
           <a className={`h-8 w-20 flex flex-col items-center justify-center ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl cursor-pointer`}>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] font-bold">Baixar</span>
           </a>
         </section>
         
-        <div id="footer 1">
-          <footer className={`flex flex-col items-center justify-center, place-content-around w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
-              <div>
-                <h3 className="font-semibold mb-2">Equipe VeriFact</h3>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>João Vitor</p>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Thiago Oliveira</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Produtos</h3>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>TrustFlow</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Como usar?</h3>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Tutorial</p>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Guia</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Recursos</h3>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Blog</p>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Contato</p>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Suporte</p>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Documentação</p>  
-              </div>
+        <footer className={`flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
+            <div>
+              <h3 className="font-semibold mb-2">Equipe VeriFact</h3>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>João Vitor</p>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Thiago Oliveira</p>
             </div>
-          </footer>
-        </div>
+            <div>
+              <h3 className="font-semibold mb-2">Produtos</h3>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>TrustFlow</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Como usar?</h3>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Tutorial</p>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Guia</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Recursos</h3>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Blog</p>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Contato</p>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Suporte</p>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Documentação</p>  
+            </div>
+          </div>
+        </footer>
 
-        <div id="footer 2">
-          <footer className={`h-30 flex flex-col items-center justify-center, place-content-around w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
-              <div>
-                <h3 className="font-semibold mb-2">Email</h3>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>ex@gmail.com</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Telefone</h3>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}> (xx) - xxxxx-xxxx</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Redes Sociais</h3>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Instagram</p>
-                <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Twitter</p>
-              </div>
+        <footer className={`h-30 flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
+            <div>
+              <h3 className="font-semibold mb-2">Email</h3>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>ex@gmail.com</p>
             </div>
-          </footer>
-        </div>
+            <div>
+              <h3 className="font-semibold mb-2">Telefone</h3>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}> (xx) - xxxxx-xxxx</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Redes Sociais</h3>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Instagram</p>
+              <p className={`${theme.textSuporte} ${theme.textSuporteHover} hover:cursor-pointer transition-colors`}>Twitter</p>
+            </div>
+          </div>
+        </footer>
 
-        <div id="footer 3">
-          <footer className={`h-15 flex flex-col items-center justify-center, place-content-around w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-60 mb-12">
-              <div>
-                <h3 className="text-sm">Copyright © 2025 VeriFact. Todos os direitos reservados.</h3>
-              </div>
+        <footer className={`h-15 flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-60 mb-12">
+            <div>
+              <h3 className="text-sm">Copyright © 2025 VeriFact. Todos os direitos reservados.</h3>
             </div>
-          </footer>
-        </div>
+          </div>
+        </footer>
 
       </div>
     </main>
