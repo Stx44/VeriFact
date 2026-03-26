@@ -223,8 +223,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="h-10 flex flex-col items-center justify-center px-4 pb-20 text-center">
-          <a className={`h-8 w-20 flex flex-col items-center justify-center ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl cursor-pointer`}>
+        <section className="h-5 flex flex-col items-center justify-center px-4 pb-20 text-center">
+          <a className={`h-10 w-20 flex flex-col items-center justify-center ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl cursor-pointer`}>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] font-bold">Baixar</span>
           </a>
         </section>
@@ -255,7 +255,7 @@ export default function Home() {
           </div>
         </footer>
 
-        <footer className={`h-30 flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
+        <footer className={`h-35 flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-60 mb-12">
             <div>
               <h3 className="font-semibold mb-2">Email</h3>
@@ -273,9 +273,9 @@ export default function Home() {
           </div>
         </footer>
 
-        <footer className={`h-15 flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-60 mb-12">
-            <div>
+        <footer className={`h-20 flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-60">
+            <div className="text-center justify-center flex flex-col items-center w-full">
               <h3 className="text-sm">Copyright © 2025 VeriFact. Todos os direitos reservados.</h3>
             </div>
           </div>
