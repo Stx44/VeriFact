@@ -17,14 +17,10 @@ export default function Home() {
     textSuporteHover: darkMode ? "hover:text-white" : "hover:text-black",
     
     border: darkMode ? "border-white/10" : "border-gray-100",
-    blobOpacity: darkMode ? "opacity-20" : "opacity-50"
+    
+    blobOpacity: darkMode ? "opacity-40" : "opacity-70"
   };
 
-  const blobStyle = {
-    animation: "blob 10s infinite",
-  };
-
-  
   const FaqItem = ({ pergunta, resposta }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
@@ -55,30 +51,17 @@ export default function Home() {
   return (
     <main className={`relative min-h-screen overflow-hidden transition-colors duration-500 ${theme.mainBg}`}>
       
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes blob {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(50px, -70px) scale(1.2); }
-          66% { transform: translate(-30px, 30px) scale(0.8); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-      `}} />
-
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div 
-          className={`absolute top-[10%] left-[10%] w-[450px] h-[450px] bg-cyan-300 rounded-full filter blur-[100px] ${theme.blobOpacity}`}
-          style={blobStyle}
-        ></div>
-        
-        <div 
-          className={`absolute top-[30%] right-[10%] w-[500px] h-[500px] bg-purple-400 rounded-full filter blur-[110px] ${theme.blobOpacity}`}
-          style={{ ...blobStyle, animationDelay: "3s" }}
-        ></div>
-        
-        <div 
-          className={`absolute bottom-[10%] left-[25%] w-[400px] h-[400px] bg-pink-300 rounded-full filter blur-[100px] ${theme.blobOpacity}`}
-          style={{ ...blobStyle, animationDelay: "6s" }}
-        ></div>
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className={`w-full h-full object-cover transition-opacity duration-1000 ${theme.blobOpacity}`}
+        >
+          <source src="/videos/background.webm" type="video/webm" />
+          <source src="/videos/background.mov" type="video/quicktime" />
+        </video>
       </div>
 
       <div className="relative z-10">
@@ -174,7 +157,7 @@ export default function Home() {
               },
               {
                 titulo: "Ameaça à Democracia",
-                desc: "No Brasil, 73% da população acredita em notícias falsas sem checar a fonte, o que gerou um cenário de polarização extrema.",
+                desc: "No Brasil, 73% da population acredita em notícias falsas sem checar a fonte, o que gerou um cenário de polarização extrema.",
                 categoria: "Sociedade",
                 fonte: "Fonte: Pesquisa Reuters Institute / G1"
               }
