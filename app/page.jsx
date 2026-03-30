@@ -86,9 +86,13 @@ export default function Home() {
         </header>
 
         <section className="flex flex-col items-center justify-center mt-32 px-4 text-center">
-          <TypingAnimation className={`text-5xl md:text-7xl font-black mb-6 ${theme.textPrincipal} drop-shadow-sm`}>
-              Verificando a verdade
-          </TypingAnimation>
+          <TypingAnimation className={`text-5xl md:text-7xl font-black mb-6 ${theme.textPrincipal} drop-shadow-sm`}
+            words={["Verificando a Verdade", "Checking the Truth"]}
+            typeSpeed={50}
+            deleteSpeed={150}
+            pauseDelay={1000}
+            loop
+          />
           <p className={`text-lg md:text-xl ${theme.textSuporte} max-w-2xl font-medium`}>
             O futuro da autenticidade digital começa aqui.
           </p>
