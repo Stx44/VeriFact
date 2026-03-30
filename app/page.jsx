@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
+import { TypingAnimation } from "@/components/ui/typing-animation";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -84,11 +86,9 @@ export default function Home() {
         </header>
 
         <section className="flex flex-col items-center justify-center mt-32 px-4 text-center">
-          <h2 className={`text-5xl md:text-7xl font-black mb-6 ${theme.textPrincipal} drop-shadow-sm`}>
-            Verificando a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82]">
-              Verdade
-            </span>
-          </h2>
+          <TypingAnimation className={`text-5xl md:text-7xl font-black mb-6 ${theme.textPrincipal} drop-shadow-sm`}>
+              Verificando a verdade
+          </TypingAnimation>
           <p className={`text-lg md:text-xl ${theme.textSuporte} max-w-2xl font-medium`}>
             O futuro da autenticidade digital começa aqui.
           </p>
@@ -223,9 +223,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="h-5 flex flex-col items-center justify-center px-4 pb-20 text-center">
-          <a className={`h-10 w-20 flex flex-col items-center justify-center ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl cursor-pointer`}>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] font-bold">Baixar</span>
+        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center gap-8">
+          <div className="w-full max-w-4xl mx-auto">
+            <HeroVideoDialog
+              animationStyle="top-in-bottom-out"
+              videoSrc="videos/video_corrigido.mp4"
+              thumbnailSrc="https://img.freepik.com/vetores-gratis/fundo-de-padrao-escuro-hexagonal_1048-10861.jpg?semt=ais_hybrid&w=740&q=80"
+              thumbnailAlt="Demonstração VeriFact"
+              className={"size-full rounded-2xl"}
+            />
+          </div>
+
+          <a className={`h-10 w-40 flex flex-col items-center justify-center ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl cursor-pointer`}>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] font-bold text-xl">Baixar</span>
           </a>
         </section>
         
