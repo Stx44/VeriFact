@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import { TypingAnimation } from "@/components/ui/typing-animation";
+import { motion } from 'framer-motion'
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -72,7 +73,9 @@ export default function Home() {
             <h1 className="text-xl font-bold tracking-tight md:text-2xl">
               VeriFact
             </h1>
-            <button 
+            <motion.button 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
               className="px-4 py-1.5 rounded-2xl font-bold text-sm transition-all hover:scale-105 active:scale-95"
               style={{ 
@@ -81,13 +84,13 @@ export default function Home() {
               }}
             >
               {darkMode ? "Modo Claro" : "Modo Escuro"}
-            </button>
+            </motion.button>
           </div>
         </header>
 
         <section className="flex flex-col items-center justify-center mt-32 px-4 text-center">
           <TypingAnimation className={`text-5xl md:text-7xl font-black mb-6 ${theme.textPrincipal} drop-shadow-sm`}
-            words={["Verificando a Verdade", "Checking the Truth"]}
+            words={["Verificando a Verdade", "hecking the truth"]}
             typeSpeed={50}
             deleteSpeed={150}
             pauseDelay={1000}
@@ -227,20 +230,30 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center gap-8">
-          <div className="w-full max-w-4xl mx-auto">
+        <section className="flex flex-col items-center justify-center px-4 pb-20 text-center gap-3">
+          <div className="w-full h-screen mx-auto">
             <HeroVideoDialog
               animationStyle="top-in-bottom-out"
               videoSrc="videos/video_corrigido.mp4"
               thumbnailSrc="https://img.freepik.com/vetores-gratis/fundo-de-padrao-escuro-hexagonal_1048-10861.jpg?semt=ais_hybrid&w=740&q=80"
               thumbnailAlt="Demonstração VeriFact"
-              className={"size-full rounded-2xl"}
+              className={"size-full rounded-2xl w-full"}
             />
           </div>
 
-          <a className={`h-10 w-40 flex flex-col items-center justify-center ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl cursor-pointer`}>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] font-bold text-xl">Baixar</span>
-          </a>
+          <motion.a 
+            whileHover={{
+            scale: 1.1,
+            // Will be used when gesture starts
+            transition: { duration: 0.1 }
+            }}
+            // Will be used when gesture ends
+            transition={{ duration: 0.5 }}
+          
+          
+          className={`h-10 w-50 flex flex-col items-center justify-center ${theme.cardBg} backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 ${theme.cardHover} hover:shadow-2xl cursor-pointer`}>
+            <span className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#4d1354] via-[#6ea4ca] to-[#9c1a82] font-bold text-xl">Baixar</span>
+          </motion.a>
         </section>
         
         <footer className={`flex flex-col items-center justify-center w-full ${theme.headerFooterBg} backdrop-blur-md ${theme.textPrincipal} py-4 px-6 shadow-sm border-b ${theme.border}`}>
