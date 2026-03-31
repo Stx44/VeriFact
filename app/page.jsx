@@ -90,7 +90,7 @@ export default function Home() {
 
         <section className="flex flex-col items-center justify-center mt-32 px-4 text-center">
           <TypingAnimation className={`text-5xl md:text-7xl font-black mb-6 ${theme.textPrincipal} drop-shadow-sm`}
-            words={["Verificando a Verdade", "hecking the truth"]}
+            words={["Verificando a Verdade", "Checking the Truth"]}
             typeSpeed={50}
             deleteSpeed={150}
             pauseDelay={1000}
